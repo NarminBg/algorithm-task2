@@ -1,4 +1,6 @@
-﻿namespace algorithm_task2
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace algorithm_task2
 {
     internal class Program
     {
@@ -6,22 +8,22 @@
         {
             Console.Write("Ededi daxil edin:");
             int number = Convert.ToInt32(Console.ReadLine());
-
-            int sum = 0, r, place = 1;
-            place = number.ToString().Length;
-
+            int count = (int)Math.Log10(number) + 1;
+            int digit;
+            int sum = 0;
+            
 
             while (number != 0)
             {
-                r = number % 10;
-                sum += r * place;
-                place--;
-                number /= 10;
-
-
+               digit = number % 10;
+               number/= 10;
+               sum += digit * count;
+               count--;
 
             }
-            Console.WriteLine(sum.ToString());
+            Console.WriteLine(sum);
+
+ 
         }
     }
 }
